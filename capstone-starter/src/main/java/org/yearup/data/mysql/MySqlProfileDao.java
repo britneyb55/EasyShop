@@ -44,4 +44,82 @@ public class MySqlProfileDao extends MySqlDaoBase implements ProfileDao
         }
     }
 
+    @Override
+    public Profile getByUserId(int userId)
+    {
+        try(Connection connection = getConnection())
+        {
+            String sql = """
+                    SELECT *
+                    FROM profiles
+                    WHERE user_id = ?;
+                    """;
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1,userId);
+
+            ResultSet row = statement.executeQuery();
+            while(row.next())
+            {
+                int user_Id = row.getInt("user_id");
+                String fistName = row.getString("first_name");
+                String lastName = row.getString("last_name");
+                String email = row.getString("email");
+                String phone = row.getString("phone");
+                String state = row.getString("state");
+                String zip = row.getString("zip");
+                String address = row.getString("address");
+                String city = row.getString("city");
+
+
+                Profile profile = new Profile(user_Id,fistName,lastName,phone,email,address,city,state,zip);
+                return profile;
+
+            }
+
+
+        }catch(SQLException e)
+        {
+            throw new RuntimeException("Error fetching profile for userId: " + userId, e);
+        }
+        return null;
+    }
+
+    @Override
+    public void updateProfile(int usedId, Profile profile)
+    {
+        try(Connection connection = getConnection())
+        {
+            String sql = """
+                    UPDATE profiles
+                    SET first_name = ?
+                    ,last_name = ?
+                    ,phone = ?
+                    , email = ?
+                    ,address = ?
+                    ,city = ?
+                    ,state = ?
+                    ,zip = ?
+                    WHERE user_id = ?;
+                    """;
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1,profile.getFirstName());
+            statement.setString(2,profile.getLastName());
+            statement.setString(3,profile.getPhone());
+            statement.setString(4,profile.getEmail());
+            statement.setString(5,profile.getAddress());
+            statement.setString(6,profile.getCity());
+            statement.setString(7,profile.getState());
+            statement.setString(8,profile.getZip());
+            statement.setInt(9, usedId);
+
+            statement.executeUpdate();
+        }
+        catch(SQLException e)
+        {
+
+        }
+
+    }
+
 }
