@@ -13,6 +13,7 @@ Welcome to EasyShop is an online store. EasyShop sells electronics, clothing, ho
 
 From this I was able to learn that when updating you always include the body of what is being update as in this case was the shoppingcartItem item meaning one single item to do this we need to @RequestBody.
 
+{
  @PutMapping("/products/{productId}")
     public void updateProductQuanityInCart(@PathVariable int productId,  Principal principal, @RequestBody ShoppingCartItem cartItem)
     {
@@ -29,9 +30,11 @@ From this I was able to learn that when updating you always include the body of 
 
 
     }
+}
 
 - Another interesting piece of code involves updating the quantity in the database and instantly reflecting the change. To achieve this, I needed to update where the productId and user_id were located. 
 
+{
 @Override
     public void updateProductQuantityInsideCart(int productId, int usedId, int quantity)
     {
@@ -53,6 +56,6 @@ From this I was able to learn that when updating you always include the body of 
 
         }
     }
-
+}
 - 
 
