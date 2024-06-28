@@ -9,6 +9,6 @@ public interface ShoppingCartDao
     ShoppingCart getByUserId(int userId);
     ShoppingCart addProductToCart(int product, int userId);
     // add additional method signatures here'
-    public void updateProductQuantityInsideCart(int product, int userid, int item);
-    public void deleteCartProducts(int userid);
+    void updateProductQuantityInsideCart(int product, int userid, int item);
+    void deleteCartProducts(int userid);
 }

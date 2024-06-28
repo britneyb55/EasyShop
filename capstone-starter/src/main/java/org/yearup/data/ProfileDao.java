@@ -8,6 +8,6 @@ public interface ProfileDao
 {
     Profile create(Profile profile);
     Profile getByUserId(int userId);
-    void updateProfile(int usedId, Profile profile);
+    Profile updateProfile(int usedId, Profile profile);
 
 }

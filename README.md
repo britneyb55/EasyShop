@@ -4,6 +4,21 @@ Welcome to EasyShop is an online store. EasyShop sells electronics, clothing, ho
 
 ## Demo
 
+![Home screen](images/FindBycategoryWithpricerange1.jpeg)
+
+![Home screen](images/allProductBypricerangeAndAblackcolor2.jpeg)
+
+![Home screen](images/addToCart3.jpeg)
+
+![Home screen](images/GetAllCategories1.jpeg)
+
+![Home screen](images/getcategoriesByid2.jpeg)
+
+![Home screen](images/PostAddcategory4.jpeg)
+
+![Home screen](images/putUpdatecategory5.jpeg)
+
+
 
 
 

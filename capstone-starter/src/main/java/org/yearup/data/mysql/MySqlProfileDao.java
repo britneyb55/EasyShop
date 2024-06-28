@@ -85,7 +85,7 @@ public class MySqlProfileDao extends MySqlDaoBase implements ProfileDao
     }
 
     @Override
-    public void updateProfile(int usedId, Profile profile)
+    public Profile updateProfile(int usedId, Profile profile)
     {
         try(Connection connection = getConnection())
         {
@@ -114,12 +114,16 @@ public class MySqlProfileDao extends MySqlDaoBase implements ProfileDao
             statement.setInt(9, usedId);
 
             statement.executeUpdate();
+
+
+            return profile;
+
         }
         catch(SQLException e)
         {
 
         }
-
+return  null;
     }
 
 }

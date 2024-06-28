@@ -26,9 +26,9 @@ import java.security.Principal;
 public class ShoppingCartController
 {
     // a shopping cart requires
-    private ShoppingCartDao shoppingCartDao;
-    private UserDao userDao;
-    private ProductDao productDao;
+    private final ShoppingCartDao shoppingCartDao;
+    private final UserDao userDao;
+    private final ProductDao productDao;
 
     @Autowired
     public ShoppingCartController(ShoppingCartDao shoppingCartDao, UserDao userDao, ProductDao productDao) {
@@ -101,7 +101,7 @@ public class ShoppingCartController
     // add a DELETE method to clear all products from the current users cart
     // https://localhost:8080/cart
     @DeleteMapping("")
-    public void deleteProduct(Principal principal )
+    public ShoppingCart deleteProduct(Principal principal )
     {
         try{
             String userName = principal.getName();
@@ -109,6 +109,7 @@ public class ShoppingCartController
             int userId = user.getId();
 
             shoppingCartDao.deleteCartProducts(userId);
+            return shoppingCartDao.getByUserId(userId);
         } catch(Exception e)
         {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");

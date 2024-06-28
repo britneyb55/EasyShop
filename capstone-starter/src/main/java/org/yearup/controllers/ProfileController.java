@@ -16,8 +16,8 @@ import java.security.Principal;
 @CrossOrigin
 public class ProfileController
 {
-    private ProfileDao profileDao;
-    private UserDao userDao;
+    private final ProfileDao profileDao;
+    private final UserDao userDao;
 
     @Autowired
     public ProfileController(ProfileDao profileDao,UserDao userDao)
@@ -56,19 +56,23 @@ public class ProfileController
     }
 
     @PutMapping("")
-    public void updateProfile(Principal principal , @RequestBody Profile profile)
+    public Profile updateProfile(Principal principal , @RequestBody Profile profile)
     {
         try{
+            System.out.println(profile);
+
+
             String userName = principal.getName();
             User user = userDao.getByUserName(userName);
             int userId = user.getId();
 
-            profileDao.updateProfile(userId,profile);
+           return profileDao.updateProfile(userId,profile);
+
+
         } catch(Exception e)
         {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
         }
-
 
     }
 
