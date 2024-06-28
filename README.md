@@ -2,7 +2,7 @@
 
 Welcome to EasyShop is an online store. EasyShop sells electronics, clothing, home and Kitchen supplies. EasyShop provides user to instantly order from home and have it deliever for free. 
 
-In the EasyShop website I used the Spring Boot Apo for the backend server. Along with using MySQL database for data storage. TO test my application post,put and delete I used Postman to test my application and logic. 
+In the EasyShop website I used the Spring Boot Api for the backend server. Along with using MySQL database for data storage. To be able to test my application - post, put and delete. I used the Postman plateform to test my application and logic. 
 
 In this project I learn how to implement code with existing frontend implementation and being able to debug. 
 
