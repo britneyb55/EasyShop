@@ -4,17 +4,31 @@ Welcome to EasyShop is an online store. EasyShop sells electronics, clothing, ho
 
 ## Demo
 
+- The user is able to find a product in their price range such as Minimum Price $14 - Maximum Price $80 in the electronic department. 
+
 ![Home screen](images/FindBycategoryWithpricerange1.jpeg)
+
+- We are also able to find products by color and price range. 
 
 ![Home screen](images/allProductBypricerangeAndAblackcolor2.jpeg)
 
+- We are also able to add products to our cart.
+
 ![Home screen](images/addToCart3.jpeg)
+
+- Get All categories 
 
 ![Home screen](images/GetAllCategories1.jpeg)
 
+- get category by id in postman
+
 ![Home screen](images/getcategoriesByid2.jpeg)
 
-![Home screen](images/PostAddcategory4.jpeg)
+- Add a category 
+
+![Home screen](images/addCategory.jpeg)
+
+- Update Category 
 
 ![Home screen](images/putUpdatecategory5.jpeg)
 
